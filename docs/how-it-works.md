@@ -44,11 +44,25 @@ GitHub honours `<picture>` with `prefers-color-scheme` in markdown. A real depar
 in any weather, so both variants keep the panel black and change only the card it sits on; the
 reader never sees a board that is the wrong colour for their theme, only a frame.
 
-## Caching
+## Caching, and how fresh the board really is
 
-GitHub proxies README images through camo, which will happily serve yesterday's board from a URL it
-has already seen. The render writes a `?v=` stamp into the `<picture>` tag on every pass, which is
-why `README.md` is committed alongside the SVGs.
+Measured rather than assumed, because the answer is not the one the profile-readme folklore gives:
+
+1. GitHub rewrites a relative image path in a README to `/<owner>/<repo>/raw/<branch>/<path>`. It
+   does this for `srcset` on `<source>` as well as `src` on `<img>`, so `<picture>` works, and it
+   keeps the query string.
+2. That URL 302s to `raw.githubusercontent.com` **without the query string**.
+3. `raw.githubusercontent.com` sends `cache-control: max-age=300` and ignores the query string when
+   caching: `?v=anything` returns the same bytes as no query at all.
+
+So the `?v=` stamp the render writes on every pass busts the reader's *browser* cache, which is
+real, and does nothing to the CDN, which is not what the folklore says. Absolute
+`raw.githubusercontent.com` URLs do not help either - same CDN, same answer. Camo never enters into
+it for a repository's own assets.
+
+The practical effect: the board can be up to five minutes behind the last commit, against a
+fifteen minute render. Good enough for departures that are ten minutes out, and there is no lever
+here that would make it better.
 
 ## Live data
 
