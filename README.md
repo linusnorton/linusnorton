@@ -2,9 +2,9 @@
 
 <!-- board:start -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/board.svg?v=hs7he">
-  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg?v=hs7he">
-  <img alt="Dot matrix departure board for Norwich (NRW): 17:42 to London Liverpool Street, on time; 17:48 to Sheringham, on time; 17:56 to Cambridge, 18:01" src="assets/board-light.svg?v=hs7he" width="912">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/board.svg?v=hs7hf">
+  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg?v=hs7hf">
+  <img alt="Dot matrix departure board for Norwich (NRW): 18:53 to Sheringham, on time; 19:00 to London Liverpool Street, on time; 19:04 to Lowestoft, on time" src="assets/board-light.svg?v=hs7hf" width="912">
 </picture>
 
 <details>
@@ -12,15 +12,15 @@
 
 | Plat | Departs | Destination | Expected |
 | --- | --- | --- | --- |
-| 4 | 17:42 | London Liverpool Street | On time |
-| 6 | 17:48 | Sheringham | On time |
-| 5 | 17:56 | Cambridge | 18:01 |
+| 6 | 18:53 | Sheringham | On time |
+| 1 | 19:00 | London Liverpool Street | On time |
+| 4 | 19:04 | Lowestoft | On time |
 
-Calling at: Diss, Stowmarket, Ipswich, Manningtree, Colchester, Chelmsford, London Liverpool Street
+Later: 19:27 Stansted Airport, 19:37 Great Yarmouth, 20:00 Sheringham
 
-Services between Norwich and Great Yarmouth are subject to alteration due to a shortage of train crew. More details.
+Please mind the gap between the documentation and the implementation.
 
-<sub>Sample timetable data, read at 17:38 UTC.</sub>
+<sub>Darwin via Rail Data Marketplace, read at 17:39 UTC.</sub>
 
 </details>
 <!-- board:end -->
