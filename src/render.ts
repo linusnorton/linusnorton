@@ -6,7 +6,7 @@ import { DARK, LIGHT, type Theme } from "./board/Theme.js";
 import type { DepartureBoard } from "./departures/Departure.js";
 import { fixtureBoard } from "./departures/FixtureBoard.js";
 import { fetchBoard } from "./departures/LdbwsClient.js";
-import { boardRegion, replaceRegion, servicesRegion } from "./Readme.js";
+import { boardRegion, replaceRegion } from "./Readme.js";
 import { loadConfig } from "./services/Config.js";
 
 const root = new URL("../", import.meta.url);
@@ -71,11 +71,7 @@ async function main(): Promise<void> {
 
   const readme = new URL("README.md", root);
   const version = Math.floor(now.getTime() / 60_000).toString(36);
-  const updated = replaceRegion(
-    replaceRegion(await readFile(readme, "utf8"), "board", boardRegion(content, version)),
-    "services",
-    servicesRegion(config.services)
-  );
+  const updated = replaceRegion(await readFile(readme, "utf8"), "board", boardRegion(content, version));
 
   await writeFile(readme, updated, "utf8");
 

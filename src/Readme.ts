@@ -1,10 +1,7 @@
 import { BOARD_WIDTH, type BoardContent } from "./board/Board.js";
-import type { ProfileService } from "./services/Config.js";
 
 /**
- * The generated parts of the profile live between markers, so the prose around them survives a
- * render. Both the picture and the list of my own "services" are generated: the board is drawn from
- * the same rows, and a hand-kept copy of them would drift within a week.
+ * The generated part of the profile lives between markers, so the prose around it survives a render.
  */
 export function replaceRegion(readme: string, name: string, content: string): string {
   const region = new RegExp(`(<!-- ${name}:start -->)[\\s\\S]*?(<!-- ${name}:end -->)`);
@@ -56,10 +53,4 @@ ${content.announcement}
 <sub>${content.source}, read at ${content.generatedAt.toISOString().slice(11, 16)} UTC.</sub>
 
 </details>`;
-}
-
-export function servicesRegion(services: readonly ProfileService[]): string {
-  return services
-    .map(service => `- \`${service.time}\` **[${service.destination}](${service.url})** — ${service.note}`)
-    .join("\n");
 }

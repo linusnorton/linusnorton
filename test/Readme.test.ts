@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { boardRegion, replaceRegion, servicesRegion } from "../src/Readme.js";
+import { boardRegion, replaceRegion } from "../src/Readme.js";
 import type { BoardContent } from "../src/board/Board.js";
 
 const content: BoardContent = {
@@ -51,21 +51,3 @@ describe("boardRegion", () => {
   });
 });
 
-describe("servicesRegion", () => {
-  it("links each service", () => {
-    const region = servicesRegion([
-      {
-        platform: "1",
-        time: "07:42",
-        destination: "planarnetwork/raptor",
-        status: "On time",
-        url: "https://github.com/planarnetwork/raptor",
-        note: "routing"
-      }
-    ]);
-
-    expect(region).toBe(
-      "- `07:42` **[planarnetwork/raptor](https://github.com/planarnetwork/raptor)** — routing"
-    );
-  });
-});
