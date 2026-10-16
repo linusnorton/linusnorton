@@ -1,0 +1,84 @@
+{
+  "generatedAt": "2026-10-16T14:19:31.0000000+01:00",
+  "locationName": "Norwich",
+  "crs": "NRW",
+  "nrccMessages": [
+    {
+      "value": "Services between Norwich and Great Yarmouth are subject to alteration due to a shortage of train crew. <A href=\"http://nationalrail.co.uk\">More details</A>."
+    }
+  ],
+  "trainServices": [
+    {
+      "std": "14:22",
+      "etd": "On time",
+      "platform": "4",
+      "operator": "Greater Anglia",
+      "destination": [{ "locationName": "London Liverpool Street", "crs": "LST" }],
+      "subsequentCallingPoints": [
+        {
+          "callingPointList": {
+            "callingPoint": [
+              { "locationName": "Diss", "st": "14:42" },
+              { "locationName": "Stowmarket", "st": "14:58" },
+              { "locationName": "Ipswich", "st": "15:11" },
+              { "locationName": "Manningtree", "st": "15:24" },
+              { "locationName": "Colchester", "st": "15:34" },
+              { "locationName": "Chelmsford", "st": "15:53" },
+              { "locationName": "London Liverpool Street", "st": "16:18" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "std": "14:28",
+      "etd": "On time",
+      "platform": "6",
+      "operator": "Greater Anglia",
+      "destination": { "location": [{ "locationName": "Sheringham", "crs": "SHM" }] },
+      "subsequentCallingPoints": [
+        {
+          "callingPoint": [
+            { "locationName": "Salhouse", "st": "14:38" },
+            { "locationName": "Hoveton & Wroxham", "st": "14:43" },
+            { "locationName": "Worstead", "st": "14:50" },
+            { "locationName": "North Walsham", "st": "14:56" },
+            { "locationName": "Gunton", "st": "15:03" },
+            { "locationName": "Roughton Road", "st": "15:10" },
+            { "locationName": "Cromer", "st": "15:14" },
+            { "locationName": "West Runton", "st": "15:21" },
+            { "locationName": "Sheringham", "st": "15:28" }
+          ]
+        }
+      ]
+    },
+    {
+      "std": "14:36",
+      "etd": "14:41",
+      "platform": "5",
+      "operator": "Greater Anglia",
+      "destination": [{ "locationName": "Cambridge", "crs": "CBG" }]
+    },
+    {
+      "std": "14:44",
+      "etd": "On time",
+      "platform": "1",
+      "operator": "Greater Anglia",
+      "destination": [{ "locationName": "Great Yarmouth", "crs": "GYM" }]
+    },
+    {
+      "std": "14:52",
+      "etd": "On time",
+      "platform": "3",
+      "operator": "East Midlands Railway",
+      "destination": [{ "locationName": "Liverpool Lime Street", "crs": "LIV" }]
+    },
+    {
+      "std": "14:58",
+      "etd": "Cancelled",
+      "platform": "2",
+      "operator": "Greater Anglia",
+      "destination": [{ "locationName": "Lowestoft", "crs": "LWT" }]
+    }
+  ]
+}

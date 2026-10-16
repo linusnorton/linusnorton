@@ -1,0 +1,38 @@
+{
+  "crs": "NRW",
+  "announcement": "Please mind the gap between the documentation and the implementation.",
+  "services": [
+    {
+      "platform": "1",
+      "time": "07:42",
+      "destination": "planarnetwork/raptor",
+      "status": "On time",
+      "url": "https://github.com/planarnetwork/raptor",
+      "note": "Round-based public transit routing. Plans a day of GB rail in milliseconds."
+    },
+    {
+      "platform": "2",
+      "time": "08:15",
+      "destination": "hmcts · digital justice",
+      "status": "On time",
+      "url": "https://github.com/hmcts",
+      "note": "Case management and court services, in the open."
+    },
+    {
+      "platform": "3",
+      "time": "09:03",
+      "destination": "ljn.io",
+      "status": "Delayed",
+      "url": "https://ljn.io",
+      "note": "Writing about journey planning, mostly. Delay repay unavailable."
+    },
+    {
+      "platform": "4",
+      "time": "23:58",
+      "destination": "mmogol",
+      "status": "Exp 2039",
+      "url": "https://github.com/linusnorton/mmogol",
+      "note": "Massively multiplayer online Game of Life. Still converging."
+    }
+  ]
+}
