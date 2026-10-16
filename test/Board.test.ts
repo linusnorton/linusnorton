@@ -55,6 +55,26 @@ describe("renderBoard", () => {
     expect(svg).toContain(`<g fill="${DARK.alert}">`);
   });
 
+  it("keeps Darwin's informational statuses out of the red", () => {
+    for (const status of ["On time", "Starts here", "Departed", "No report"]) {
+      const calm = renderBoard(
+        { ...content, departures: [{ ...content.departures[0]!, status }], detail: "" },
+        DARK
+      );
+
+      expect(calm).not.toContain(`<g fill="${DARK.alert}">`);
+    }
+
+    for (const status of ["Cancelled", "Delayed", "14:41"]) {
+      const late = renderBoard(
+        { ...content, departures: [{ ...content.departures[0]!, status }], detail: "" },
+        DARK
+      );
+
+      expect(late).toContain(`<g fill="${DARK.alert}">`);
+    }
+  });
+
   it("scrolls the calling points and blinks the colon", () => {
     expect(svg).toContain("@keyframes calling");
     expect(svg).toContain("@keyframes blink");

@@ -130,9 +130,13 @@ class Layer {
   }
 }
 
-/** Anything that is late, cancelled or otherwise not "on time" is worth a different colour */
+/**
+ * Late and cancelled services get the red. The rest of Darwin's informational etd values do not:
+ * a departed service or one with no report is not a problem, and a bare "14:41" is, because the
+ * only reason Darwin sends a time in place of "On time" is that the service is running late.
+ */
 function isAlert(status: string): boolean {
-  return !/^(on time|starts here)$/i.test(status.trim());
+  return !/^(on time|starts here|departed|no report)$/i.test(status.trim());
 }
 
 export function renderBoard(content: BoardContent, theme: Theme): string {
