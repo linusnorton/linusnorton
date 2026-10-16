@@ -32,8 +32,8 @@ export interface BoardContent {
   readonly crs: string;
   readonly generatedAt: Date;
   readonly departures: readonly BoardRow[];
-  /** Calling points of the first departure, which is the only one a real board has room for */
-  readonly callingAt: string;
+  /** The second line of the first departure, which is the only one a real board has room for */
+  readonly detail: string;
   readonly services: readonly BoardRow[];
   readonly announcement: string;
   readonly source: string;
@@ -217,8 +217,8 @@ export function renderBoard(content: BoardContent, theme: Theme): string {
   content.departures.forEach((departure, index) => {
     writeRow(departure, line(), accent);
 
-    if (index === 0 && content.callingAt.length > 0) {
-      crawl("calling", TIME_COLUMN, y - LINE_PITCH + CELL_HEIGHT + 3, content.callingAt, theme.dim);
+    if (index === 0 && content.detail.length > 0) {
+      crawl("calling", TIME_COLUMN, y - LINE_PITCH + CELL_HEIGHT + 3, content.detail, theme.dim);
       y += CELL_HEIGHT + 6;
     }
   });

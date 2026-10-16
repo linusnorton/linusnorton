@@ -13,6 +13,7 @@ This one is drawn by `npm run render` and committed by a workflow every fifteen 
 | `src/board/DotMatrix.ts` | A 5x7 font, one byte per column, bit 0 the top row - the layout an LED driver wants |
 | `src/board/Board.ts` | Lays out the board and emits the SVG |
 | `src/board/Theme.ts` | The two colour schemes. Only the card around the board changes |
+| `src/board/DetailLine.ts` | Picks what goes on the line under the first departure |
 | `src/departures/LdbwsClient.ts` | Live Departure Boards, from the Rail Data Marketplace |
 | `src/departures/LdbwsResponse.ts` | Parses the response, and rebases fixture times onto today |
 | `src/Readme.ts` | Rewrites the marked regions of `README.md` |
@@ -60,7 +61,11 @@ parser reads both, and the footer says which it was.
 | --- | --- | --- |
 | `RDM_API_KEY` | none | Rail Data Marketplace key. Unset renders the fixture |
 | `STATION_CRS` | `NRW` from `config/board.json` | Three letter station code |
-| `LDBWS_URL` | Rail Data Marketplace | Point at another LDBWS gateway or a proxy |
+| `LDBWS_URL` | `GetDepartureBoard` on RDM | Another LDBWS gateway or operation |
+
+`GetDepartureBoard` does not send calling points, so the line under the first departure crawls the
+departures that did not fit on the board instead. Pointing `LDBWS_URL` at `GetDepBoardWithDetails`
+on the same product puts the real calling points there.
 
 ## Contributions
 

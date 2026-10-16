@@ -4,10 +4,11 @@ import { parseBoard } from "./LdbwsResponse.js";
 /**
  * Live Departure Boards, as published on the Rail Data Marketplace. The url is configurable because
  * the same payload comes out of a handful of gateways - RDM, a self-hosted OpenLDBWS proxy - and
- * the parser does not care which one answered.
+ * the parser does not care which one answered. Swapping GetDepartureBoard for GetDepBoardWithDetails
+ * on the same product is what fills the calling points line.
  */
 const DEFAULT_URL =
-  "https://api1.raildata.org.uk/1010-live-departure-board-dep1_2/LDBWS/api/20220120/GetDepBoardWithDetails";
+  "https://api1.raildata.org.uk/1010-live-departure-board-dep1_2/LDBWS/api/20220120/GetDepartureBoard";
 
 export interface LdbwsOptions {
   readonly crs: string;

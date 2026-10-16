@@ -2,9 +2,9 @@
 
 <!-- board:start -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/board.svg?v=hs7gz">
-  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg?v=hs7gz">
-  <img alt="Dot matrix departure board for Norwich (NRW): 17:27 to London Liverpool Street, on time; 17:33 to Sheringham, on time; 17:41 to Cambridge, 17:46" src="assets/board-light.svg?v=hs7gz" width="912">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/board.svg?v=hs7h7">
+  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg?v=hs7h7">
+  <img alt="Dot matrix departure board for Norwich (NRW): 17:35 to London Liverpool Street, on time; 17:41 to Sheringham, on time; 17:49 to Cambridge, 17:54" src="assets/board-light.svg?v=hs7h7" width="912">
 </picture>
 
 <details>
@@ -12,15 +12,15 @@
 
 | Plat | Departs | Destination | Expected |
 | --- | --- | --- | --- |
-| 4 | 17:27 | London Liverpool Street | On time |
-| 6 | 17:33 | Sheringham | On time |
-| 5 | 17:41 | Cambridge | 17:46 |
+| 4 | 17:35 | London Liverpool Street | On time |
+| 6 | 17:41 | Sheringham | On time |
+| 5 | 17:49 | Cambridge | 17:54 |
 
 Calling at: Diss, Stowmarket, Ipswich, Manningtree, Colchester, Chelmsford, London Liverpool Street
 
 Services between Norwich and Great Yarmouth are subject to alteration due to a shortage of train crew. More details.
 
-<sub>Sample timetable data, read at 17:23 UTC.</sub>
+<sub>Sample timetable data, read at 17:31 UTC.</sub>
 
 </details>
 <!-- board:end -->

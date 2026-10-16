@@ -49,7 +49,7 @@ export function boardRegion(content: BoardContent, version: string): string {
 | --- | --- | --- | --- |
 ${rows}
 
-${content.callingAt}
+${content.detail}
 
 ${content.announcement}
 

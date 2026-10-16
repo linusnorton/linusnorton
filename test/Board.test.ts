@@ -11,7 +11,7 @@ const content: BoardContent = {
     { platform: "6", time: "14:28", destination: "Sheringham", status: "14:41" },
     { platform: "2", time: "14:58", destination: "Lowestoft", status: "Cancelled" }
   ],
-  callingAt: "Calling at: Diss, Stowmarket, Ipswich",
+  detail: "Calling at: Diss, Stowmarket, Ipswich",
   services: [
     { platform: "1", time: "07:42", destination: "planarnetwork/raptor", status: "On time" }
   ],
@@ -93,7 +93,7 @@ describe("renderBoard", () => {
       {
         ...content,
         station: "Smith & <script>",
-        callingAt: ""
+        detail: ""
       },
       DARK
     );
@@ -121,7 +121,7 @@ describe("renderBoard", () => {
             status: "On time"
           }
         ],
-        callingAt: ""
+        detail: ""
       },
       DARK
     );

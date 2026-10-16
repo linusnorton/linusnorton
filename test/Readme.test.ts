@@ -9,7 +9,7 @@ const content: BoardContent = {
   departures: [
     { platform: "4", time: "14:22", destination: "London Liverpool Street", status: "On time" }
   ],
-  callingAt: "Calling at: Diss",
+  detail: "Calling at: Diss",
   services: [],
   announcement: "Please mind the gap",
   source: "Sample timetable data"

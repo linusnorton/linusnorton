@@ -1,6 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import type { BoardContent, BoardRow } from "./board/Board.js";
 import { renderBoard } from "./board/Board.js";
+import { detailLine } from "./board/DetailLine.js";
 import { DARK, LIGHT, type Theme } from "./board/Theme.js";
 import type { DepartureBoard } from "./departures/Departure.js";
 import { fixtureBoard } from "./departures/FixtureBoard.js";
@@ -54,8 +55,7 @@ async function main(): Promise<void> {
     crs: board.crs || crs,
     generatedAt: board.generatedAt,
     departures: departures.map(toRow),
-    callingAt:
-      first && first.callingPoints.length > 0 ? `Calling at: ${first.callingPoints.join(", ")}` : "",
+    detail: detailLine(board, DEPARTURES_SHOWN),
     services: config.services,
     announcement: board.messages[0] ?? config.announcement,
     source: board.live ? "Darwin via Rail Data Marketplace" : "Sample timetable data"
