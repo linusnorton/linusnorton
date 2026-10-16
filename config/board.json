@@ -29,10 +29,10 @@
     {
       "platform": "4",
       "time": "23:58",
-      "destination": "mmogol",
-      "status": "Exp 2039",
-      "url": "https://github.com/linusnorton/mmogol",
-      "note": "Massively multiplayer online Game of Life. Still converging."
+      "destination": "raskl-rag",
+      "status": "Starts here",
+      "url": "https://github.com/linusnorton/raskl-rag",
+      "note": "RAG over 150 years of Royal Asiatic Society journals, answered with page level citations."
     }
   ]
 }
