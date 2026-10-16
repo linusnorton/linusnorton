@@ -9,10 +9,11 @@ const content: BoardContent = {
   departures: [
     { platform: "4", time: "14:22", destination: "London Liverpool Street", status: "On time" }
   ],
-  detail: "Calling at: Diss",
+  callingAt: "Calling at: Diss",
+  later: "Later: 14:44 Great Yarmouth",
   services: [],
   announcement: "Please mind the gap",
-  source: "Sample timetable data"
+  footnote: ""
 };
 
 describe("replaceRegion", () => {
@@ -30,7 +31,7 @@ describe("replaceRegion", () => {
 });
 
 describe("boardRegion", () => {
-  const region = boardRegion(content, "abc");
+  const region = boardRegion(content, "abc", "Sample timetable data");
 
   it("sizes the image to the board it rendered", () => {
     expect(region).toContain('width="912"');
@@ -44,6 +45,12 @@ describe("boardRegion", () => {
 
   it("says in the alt text what the board says", () => {
     expect(region).toContain("14:22 to London Liverpool Street, on time");
+  });
+
+  it("keeps both lines, and the attribution it was given", () => {
+    expect(region).toContain("Calling at: Diss");
+    expect(region).toContain("Later: 14:44 Great Yarmouth");
+    expect(region).toContain("<sub>Sample timetable data, read at 14:19 UTC.</sub>");
   });
 
   it("repeats the departures as a table", () => {

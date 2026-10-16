@@ -32,11 +32,14 @@ export interface BoardContent {
   readonly crs: string;
   readonly generatedAt: Date;
   readonly departures: readonly BoardRow[];
-  /** The second line of the first departure, which is the only one a real board has room for */
-  readonly detail: string;
+  /** Calling points of the first departure, drawn under it because they belong to that service */
+  readonly callingAt: string;
+  /** Departures that did not fit, drawn under the last row because they belong to the board */
+  readonly later: string;
   readonly services: readonly BoardRow[];
   readonly announcement: string;
-  readonly source: string;
+  /** Bottom left of the board. Empty when the departures are live and there is nothing to confess */
+  readonly footnote: string;
 }
 
 /** Trims trailing zeroes so the markup does not carry "123.00000000001" around */
@@ -221,11 +224,16 @@ export function renderBoard(content: BoardContent, theme: Theme): string {
   content.departures.forEach((departure, index) => {
     writeRow(departure, line(), accent);
 
-    if (index === 0 && content.detail.length > 0) {
-      crawl("calling", TIME_COLUMN, y - LINE_PITCH + CELL_HEIGHT + 3, content.detail, theme.dim);
+    if (index === 0 && content.callingAt.length > 0) {
+      crawl("calling", TIME_COLUMN, y - LINE_PITCH + CELL_HEIGHT + 3, content.callingAt, theme.dim);
       y += CELL_HEIGHT + 6;
     }
   });
+
+  if (content.later.length > 0) {
+    crawl("later", TIME_COLUMN, y - LINE_PITCH + CELL_HEIGHT + 3, content.later, theme.dim);
+    y += CELL_HEIGHT + 6;
+  }
 
   separate();
 
@@ -252,7 +260,7 @@ export function renderBoard(content: BoardContent, theme: Theme): string {
   const hours = clock.getUTCHours().toString().padStart(2, "0");
   const minutes = clock.getUTCMinutes().toString().padStart(2, "0");
 
-  dim.write(PLATFORM_COLUMN, footer, content.source);
+  dim.write(PLATFORM_COLUMN, footer, content.footnote);
   accent.rightAlign(BOARD_COLUMNS - 3, footer, hours);
   blink.write(BOARD_COLUMNS - 3, footer, ":");
   accent.write(BOARD_COLUMNS - 2, footer, minutes);

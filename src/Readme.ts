@@ -28,7 +28,7 @@ function altText(content: BoardContent): string {
     .replace(/\s+/g, " ");
 }
 
-export function boardRegion(content: BoardContent, version: string): string {
+export function boardRegion(content: BoardContent, version: string, attribution: string): string {
   const rows = content.departures
     .map(d => `| ${cell(d.platform)} | ${cell(d.time)} | ${cell(d.destination)} | ${cell(d.status)} |`)
     .join("\n");
@@ -46,11 +46,11 @@ export function boardRegion(content: BoardContent, version: string): string {
 | --- | --- | --- | --- |
 ${rows}
 
-${content.detail}
+${[content.callingAt, content.later].filter(Boolean).join("\n\n")}
 
 ${content.announcement}
 
-<sub>${content.source}, read at ${content.generatedAt.toISOString().slice(11, 16)} UTC.</sub>
+<sub>${attribution}, read at ${content.generatedAt.toISOString().slice(11, 16)} UTC.</sub>
 
 </details>`;
 }

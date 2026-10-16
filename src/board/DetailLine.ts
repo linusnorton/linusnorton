@@ -1,20 +1,26 @@
 import type { DepartureBoard } from "../departures/Departure.js";
 
+export interface DetailLines {
+  /** Where the first departure calls, which is a fact about that service */
+  readonly callingAt: string;
+  /** The departures that did not fit, which is a fact about the board */
+  readonly later: string;
+}
+
 /**
- * The line under the first departure. GetDepBoardWithDetails sends the calling points and they go
- * here, as they would on a real board; GetDepartureBoard does not send them at all, so rather than
- * leave the line blank it carries the departures that did not fit on the board.
+ * The two lines that go between the departures. They are separate because they belong to different
+ * things and so hang underneath different rows: calling points under the service they describe,
+ * the later departures under the last row on the board. GetDepBoardWithDetails sends calling
+ * points and GetDepartureBoard does not, so on a plain board only the second line appears.
  */
-export function detailLine(board: DepartureBoard, shown: number): string {
+export function detailLines(board: DepartureBoard, shown: number): DetailLines {
   const first = board.departures[0];
-
-  if (first && first.callingPoints.length > 0) {
-    return `Calling at: ${first.callingPoints.join(", ")}`;
-  }
-
   const later = board.departures.slice(shown);
 
-  return later.length > 0
-    ? `Later: ${later.map(d => `${d.scheduled} ${d.destination}`).join(", ")}`
-    : "";
+  return {
+    callingAt:
+      first && first.callingPoints.length > 0 ? `Calling at: ${first.callingPoints.join(", ")}` : "",
+    later:
+      later.length > 0 ? `Later: ${later.map(d => `${d.scheduled} ${d.destination}`).join(", ")}` : ""
+  };
 }

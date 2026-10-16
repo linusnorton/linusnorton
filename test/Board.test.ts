@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { type BoardContent, renderBoard } from "../src/board/Board.js";
+
+/** The row spacing Board.ts lays out with, so the ordering test can say "more than two rows apart" */
+const LINE_PITCH = 30;
 import { DARK, LIGHT } from "../src/board/Theme.js";
 
 const content: BoardContent = {
@@ -11,12 +14,13 @@ const content: BoardContent = {
     { platform: "6", time: "14:28", destination: "Sheringham", status: "14:41" },
     { platform: "2", time: "14:58", destination: "Lowestoft", status: "Cancelled" }
   ],
-  detail: "Calling at: Diss, Stowmarket, Ipswich",
+  callingAt: "Calling at: Diss, Stowmarket, Ipswich",
+  later: "Later: 15:02 Great Yarmouth",
   services: [
     { platform: "1", time: "07:42", destination: "planarnetwork/raptor", status: "On time" }
   ],
   announcement: "Please mind the gap",
-  source: "Darwin via Rail Data Marketplace"
+  footnote: ""
 };
 
 describe("renderBoard", () => {
@@ -58,7 +62,7 @@ describe("renderBoard", () => {
   it("keeps Darwin's informational statuses out of the red", () => {
     for (const status of ["On time", "Starts here", "Departed", "No report"]) {
       const calm = renderBoard(
-        { ...content, departures: [{ ...content.departures[0]!, status }], detail: "" },
+        { ...content, departures: [{ ...content.departures[0]!, status }], callingAt: "", later: "" },
         DARK
       );
 
@@ -67,12 +71,19 @@ describe("renderBoard", () => {
 
     for (const status of ["Cancelled", "Delayed", "14:41"]) {
       const late = renderBoard(
-        { ...content, departures: [{ ...content.departures[0]!, status }], detail: "" },
+        { ...content, departures: [{ ...content.departures[0]!, status }], callingAt: "", later: "" },
         DARK
       );
 
       expect(late).toContain(`<g fill="${DARK.alert}">`);
     }
+  });
+
+  it("hangs the calling points under the first departure and the later ones under the last", () => {
+    const where = (id: string): number =>
+      Number(new RegExp(`<clipPath id="${id}"><rect x="[^"]+" y="(\\d+(?:\\.\\d+)?)"`).exec(svg)![1]);
+
+    expect(where("later") - where("calling")).toBeGreaterThan(LINE_PITCH * 2);
   });
 
   it("scrolls the calling points and blinks the colon", () => {
@@ -113,7 +124,8 @@ describe("renderBoard", () => {
       {
         ...content,
         station: "Smith & <script>",
-        detail: ""
+        callingAt: "",
+        later: ""
       },
       DARK
     );
@@ -141,7 +153,8 @@ describe("renderBoard", () => {
             status: "On time"
           }
         ],
-        detail: ""
+        callingAt: "",
+        later: ""
       },
       DARK
     );

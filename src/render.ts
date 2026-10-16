@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import type { BoardContent, BoardRow } from "./board/Board.js";
 import { renderBoard } from "./board/Board.js";
-import { detailLine } from "./board/DetailLine.js";
+import { detailLines } from "./board/DetailLine.js";
 import { DARK, LIGHT, type Theme } from "./board/Theme.js";
 import type { DepartureBoard } from "./departures/Departure.js";
 import { fixtureBoard } from "./departures/FixtureBoard.js";
@@ -49,16 +49,15 @@ async function main(): Promise<void> {
   const crs = process.env.STATION_CRS?.trim().toUpperCase() || config.crs;
   const board = await readDepartures(crs, now);
   const departures = board.departures.slice(0, DEPARTURES_SHOWN);
-  const first = departures[0];
   const content: BoardContent = {
     station: board.station,
     crs: board.crs || crs,
     generatedAt: board.generatedAt,
     departures: departures.map(toRow),
-    detail: detailLine(board, DEPARTURES_SHOWN),
+    ...detailLines(board, DEPARTURES_SHOWN),
     services: config.services,
     announcement: board.messages[0] ?? config.announcement,
-    source: board.live ? "Darwin via Rail Data Marketplace" : "Sample timetable data"
+    footnote: board.live ? "" : "Sample timetable data"
   };
   const themes: Array<[Theme, URL]> = [
     [DARK, new URL("assets/board.svg", root)],
@@ -71,13 +70,18 @@ async function main(): Promise<void> {
 
   const readme = new URL("README.md", root);
   const version = Math.floor(now.getTime() / 60_000).toString(36);
-  const updated = replaceRegion(await readFile(readme, "utf8"), "board", boardRegion(content, version));
+  const attribution = board.live
+    ? "Live departures from Darwin, via the Rail Data Marketplace"
+    : "Sample timetable data";
+  const updated = replaceRegion(
+    await readFile(readme, "utf8"),
+    "board",
+    boardRegion(content, version, attribution)
+  );
 
   await writeFile(readme, updated, "utf8");
 
-  console.log(
-    `${content.station} (${content.crs}) · ${departures.length} departures · ${content.source}`
-  );
+  console.log(`${content.station} (${content.crs}) · ${departures.length} departures · ${attribution}`);
 }
 
 await main();
