@@ -2,9 +2,9 @@
 
 <!-- board:start -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/board.svg?v=hsc72">
-  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg?v=hsc72">
-  <img alt="Dot matrix departure board for Norwich (NRW): " src="assets/board-light.svg?v=hsc72" width="912">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/board.svg?v=hscaz">
+  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg?v=hscaz">
+  <img alt="Dot matrix departure board for Norwich (NRW): " src="assets/board-light.svg?v=hscaz" width="912">
 </picture>
 
 <details>
@@ -18,7 +18,7 @@
 
 Please mind the gap between the documentation and the implementation.
 
-<sub>Live departures from Darwin, via the Rail Data Marketplace, read at 23:26 UTC.</sub>
+<sub>Live departures from Darwin, via the Rail Data Marketplace, read at 01:47 UTC.</sub>
 
 </details>
 <!-- board:end -->
