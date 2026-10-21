@@ -2,9 +2,9 @@
 
 <!-- board:start -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/board.svg?v=hsd1f">
-  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg?v=hsd1f">
-  <img alt="Dot matrix departure board for Norwich (NRW): 18:53 to Sheringham, on time; 19:00 to London Liverpool Street, on time; 19:04 to Lowestoft, on time" src="assets/board-light.svg?v=hsd1f" width="912">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/board.svg?v=hsd6t">
+  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg?v=hsd6t">
+  <img alt="Dot matrix departure board for Norwich (NRW): 21:54 to Beccles, on time; 22:00 to Sheringham, on time; 22:02 to London Liverpool Street, on time" src="assets/board-light.svg?v=hsd6t" width="912">
 </picture>
 
 <details>
@@ -12,15 +12,15 @@
 
 | Plat | Departs | Destination | Expected |
 | --- | --- | --- | --- |
-| 6 | 18:53 | Sheringham | On time |
-| 1 | 19:00 | London Liverpool Street | On time |
-| 4 | 19:04 | Lowestoft | On time |
+| 5 | 21:54 | Beccles | On time |
+| 4 | 22:00 | Sheringham | On time |
+| 2 | 22:02 | London Liverpool Street | On time |
 
-Later: 19:27 Stansted Airport, 19:37 Great Yarmouth, 20:00 Sheringham
+Later: 22:40 Cambridge, 22:47 Sheringham, 22:51 Lowestoft
 
 Please mind the gap between the documentation and the implementation.
 
-<sub>Live departures from Darwin, via the Rail Data Marketplace, read at 17:39 UTC.</sub>
+<sub>Live departures from Darwin, via the Rail Data Marketplace, read at 20:53 UTC.</sub>
 
 </details>
 <!-- board:end -->
