@@ -2,9 +2,9 @@
 
 <!-- board:start -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/board.svg?v=hsl2f">
-  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg?v=hsl2f">
-  <img alt="Dot matrix departure board for Norwich (NRW): 23:05 to Ipswich, on time" src="assets/board-light.svg?v=hsl2f" width="912">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/board.svg?v=hsl2t">
+  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg?v=hsl2t">
+  <img alt="Dot matrix departure board for Norwich (NRW): " src="assets/board-light.svg?v=hsl2t" width="912">
 </picture>
 
 <details>
@@ -12,13 +12,13 @@
 
 | Plat | Departs | Destination | Expected |
 | --- | --- | --- | --- |
-| 2 | 23:05 | Ipswich | On time |
+
 
 
 
 Please mind the gap between the documentation and the implementation.
 
-<sub>Live departures from Darwin, via the Rail Data Marketplace, read at 23:03 UTC.</sub>
+<sub>Live departures from Darwin, via the Rail Data Marketplace, read at 23:17 UTC.</sub>
 
 </details>
 <!-- board:end -->
