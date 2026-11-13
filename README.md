@@ -2,9 +2,9 @@
 
 <!-- board:start -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/board.svg?v=ht22p">
-  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg?v=ht22p">
-  <img alt="Dot matrix departure board for Norwich (NRW): 06:24 to Great Yarmouth, on time; 06:30 to London Liverpool Street, on time; 06:33 to Cambridge, on time" src="assets/board-light.svg?v=ht22p" width="912">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/board.svg?v=ht231">
+  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg?v=ht231">
+  <img alt="Dot matrix departure board for Norwich (NRW): 06:51 to Liverpool Lime Street, on time; 06:56 to Great Yarmouth, on time; 07:00 to London Liverpool Street, on time" src="assets/board-light.svg?v=ht231" width="912">
 </picture>
 
 <details>
@@ -12,15 +12,15 @@
 
 | Plat | Departs | Destination | Expected |
 | --- | --- | --- | --- |
-| 5B | 06:24 | Great Yarmouth | On time |
-| 2 | 06:30 | London Liverpool Street | On time |
-| 6 | 06:33 | Cambridge | On time |
+| 3A | 06:51 | Liverpool Lime Street | On time |
+| 4B | 06:56 | Great Yarmouth | On time |
+| 2 | 07:00 | London Liverpool Street | On time |
 
-Later: 06:51 Liverpool Lime Street, 06:56 Great Yarmouth
+Later: 07:15 Sheringham, 07:26 Cambridge
 
 Please mind the gap between the documentation and the implementation.
 
-<sub>Live departures from Darwin, via the Rail Data Marketplace, read at 06:25 UTC.</sub>
+<sub>Live departures from Darwin, via the Rail Data Marketplace, read at 06:37 UTC.</sub>
 
 </details>
 <!-- board:end -->
