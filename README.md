@@ -2,9 +2,9 @@
 
 <!-- board:start -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/board.svg?v=ht5ur">
-  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg?v=ht5ur">
-  <img alt="Dot matrix departure board for Norwich (NRW): 16:25 to Cambridge, on time; 16:26 to Great Yarmouth, on time; 16:30 to London Liverpool Street, on time" src="assets/board-light.svg?v=ht5ur" width="912">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/board.svg?v=ht5v7">
+  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg?v=ht5v7">
+  <img alt="Dot matrix departure board for Norwich (NRW): 16:25 to Cambridge, on time; 16:26 to Great Yarmouth, on time; 16:30 to London Liverpool Street, on time" src="assets/board-light.svg?v=ht5v7" width="912">
 </picture>
 
 <details>
@@ -20,7 +20,7 @@ Later: 16:41 Sheringham, 16:52 Manchester Piccadilly
 
 Please mind the gap between the documentation and the implementation.
 
-<sub>Live departures from Darwin, via the Rail Data Marketplace, read at 16:03 UTC.</sub>
+<sub>Live departures from Darwin, via the Rail Data Marketplace, read at 16:19 UTC.</sub>
 
 </details>
 <!-- board:end -->
